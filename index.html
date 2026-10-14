@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licenciatura en Arte Digital y Animación - UNICA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #0c1b33;
+      --color-bg-alt: #081224;
+      --color-surface: #122442;
+      --color-surface-hover: #193056;
+      --color-card-dark: #0e1e38;
+      --color-text: #efefef;
+      --color-text-muted: #b3c0d1;
+      --color-gold: #e3ae50;
+      --color-gold-hover: #f3be60;
+      --color-gold-glow: rgba(227, 174, 80, 0.25);
+      --border-gold: rgba(227, 174, 80, 0.35);
+      --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      --header-height: 80px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height);
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding-top: var(--header-height);
+      overflow-x: hidden;
+    }
+
+    /* Accessibility focus */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 4px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      color: var(--color-text);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: rgba(12, 27, 51, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-gold);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-text);
+    }
+
+    .brand-logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-gold);
+    }
+
+    /* Header Placeholder Button */
+    .btn-placeholder {
+      display: inline-block;
+      padding: 0.6rem 1.3rem;
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .btn-placeholder:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+      box-shadow: 0 0 15px var(--color-gold-glow);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 6rem 0 5rem 0;
+      background-color: var(--color-bg-alt);
+      border-bottom: 1px solid var(--border-gold);
+      overflow: hidden;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(12, 27, 51, 0.93) 30%, rgba(12, 27, 51, 0.75) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.35rem 1rem;
+      background: rgba(227, 174, 80, 0.12);
+      border: 1px solid var(--border-gold);
+      border-radius: 50px;
+      color: var(--color-gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--color-gold);
+    }
+
+    .hero-title {
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--color-gold);
+      display: block;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-tagline {
+      font-size: 1.35rem;
+      color: var(--color-gold);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background-color: var(--color-gold);
+      color: var(--color-bg);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px var(--color-gold-glow);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(227, 174, 80, 0.4);
+    }
+
+    .hero-visual-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .hero-art-card {
+      background: var(--color-surface);
+      border: 1px solid var(--border-gold);
+      padding: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-art-card:nth-child(1) {
+      transform: rotate(-2deg);
+    }
+
+    .hero-art-card:nth-child(2) {
+      transform: rotate(3deg) translateY(1.5rem);
+    }
+
+    .hero-art-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      z-index: 10;
+      border-color: var(--color-gold);
+    }
+
+    .hero-art-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-art-caption {
+      font-size: 0.78rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .section-kicker {
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-lead {
+      font-size: 1.15rem;
+      margin-top: 1rem;
+    }
+
+    /* Section Dividers / Accents */
+    .gold-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+      margin: 1rem auto;
+    }
+
+    /* Overview & Program Section */
+    .program-section {
+      background-color: var(--color-bg);
+    }
+
+    .program-card {
+      background: var(--color-surface);
+      border: 1px solid var(--border-gold);
+      padding: 3rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .program-tag {
+      display: inline-block;
+      background: rgba(227, 174, 80, 0.15);
+      color: var(--color-gold);
+      padding: 0.3rem 0.8rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .program-description {
+      font-size: 1.15rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .program-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .program-highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    .program-highlight-item::before {
+      content: '◆';
+      color: var(--color-gold);
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .program-visual {
+      position: relative;
+    }
+
+    .program-img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border: 1px solid var(--border-gold);
+      display: block;
+    }
+
+    /* Disciplines Section */
+    .disciplines-section {
+      background-color: var(--color-bg-alt);
+      border-top: 1px solid rgba(227, 174, 80, 0.15);
+      border-bottom: 1px solid rgba(227, 174, 80, 0.15);
+    }
+
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .discipline-card {
+      background: var(--color-card-dark);
+      border: 1px solid var(--border-gold);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .discipline-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .discipline-img-wrapper {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(227, 174, 80, 0.2);
+    }
+
+    .discipline-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .discipline-num {
+      color: var(--color-gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .discipline-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      color: var(--color-text);
+    }
+
+    .discipline-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      flex-grow: 1;
+    }
+
+    /* Gallery Section - Aesthetics Showcase */
+    .gallery-section {
+      background-color: var(--color-bg);
+    }
+
+    .aesthetics-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .aesthetic-tag {
+      padding: 0.5rem 1.2rem;
+      background: var(--color-surface);
+      border: 1px solid var(--border-gold);
+      color: var(--color-gold);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 50px;
+      letter-spacing: 0.03em;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      background: var(--color-surface);
+      border: 1px solid var(--border-gold);
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-4px);
+    }
+
+    .gallery-item-large {
+      grid-column: span 2;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item-large .gallery-img {
+      height: 380px;
+    }
+
+    .gallery-caption {
+      padding: 10px 5px 2px 5px;
+    }
+
+    .gallery-category {
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .gallery-title {
+      font-size: 1rem;
+      color: var(--color-text);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* Core Values Section */
+    .values-section {
+      background-color: var(--color-bg-alt);
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-card {
+      background: var(--color-surface);
+      border: 1px solid rgba(227, 174, 80, 0.25);
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+      border-color: var(--color-gold);
+      box-shadow: 0 10px 30px var(--color-gold-glow);
+      background: var(--color-surface-hover);
+    }
+
+    .value-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 1.2rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      border-radius: 50%;
+      font-size: 1.4rem;
+    }
+
+    .value-title {
+      font-size: 1.3rem;
+      color: var(--color-text);
+      margin-bottom: 0.8rem;
+    }
+
+    .value-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    /* University Authority Section */
+    .institution-section {
+      background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+      padding: 6rem 0;
+    }
+
+    .institution-card {
+      background: var(--color-surface);
+      border: 1px solid var(--border-gold);
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 3rem;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .institution-logo-wrap {
+      text-align: center;
+      padding: 1rem;
+      background: #efefef;
+      border-radius: 4px;
+      border: 1px solid var(--border-gold);
+    }
+
+    .institution-logo {
+      max-width: 100%;
+      max-height: 240px;
+      object-fit: contain;
+    }
+
+    .institution-info h3 {
+      color: var(--color-gold);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .institution-info h2 {
+      margin-bottom: 1.2rem;
+      font-size: 2rem;
+    }
+
+    .institution-info p {
+      margin-bottom: 1.8rem;
+      font-size: 1.05rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #050b16;
+      border-top: 1px solid var(--border-gold);
+      padding: 4rem 0 2rem 0;
+      color: var(--color-text-muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h4 {
+      color: var(--color-text);
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      max-width: 450px;
+    }
+
+    .footer-title {
+      color: var(--color-gold);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .footer-list {
+      list-style: none;
+    }
+
+    .footer-list li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-list a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-list a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(227, 174, 80, 0.15);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      .program-card {
+        grid-template-columns: 1fr;
+      }
+      .institution-card {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item-large {
+        grid-column: span 2;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Mobile fallback clean layout */
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item-large {
+        grid-column: span 1;
+      }
+      .gallery-item-large .gallery-img {
+        height: 280px;
+      }
+      .program-highlights {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-art-card:nth-child(2) {
+        transform: rotate(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <header>
+    <div class="container">
+      <nav class="header-nav">
+        <a href="#inicio" class="brand">
+          <img src="resources/9O64ijU8NlL86Gii6R_Ohi.png" alt="UNICA Logo" class="brand-logo">
+          <div class="brand-text">
+            <span class="brand-title">Arte Digital & Animación</span>
+            <span class="brand-subtitle">UNICA</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#programa">El Programa</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#galeria">Galería & Estilos</a></li>
+          <li><a href="#valores">Valores</a></li>
+          <li><a href="#universidad">UNICA</a></li>
+        </ul>
+
+        <!-- Mandatory Placeholder CTA Button in Header -->
+        <a href="#" class="btn-placeholder">[Your link here]</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero" data-alt="An abstract cinematic background with swirling dark sapphire blue ink, shimmering gold liquid dust particles, and soft moody rim lighting against deep navy shadows. High contrast, atmospheric texture, editorial art style, no text, signage, or lettering." style="background-image: url('resources/aOo9x7xDCgz4BYJ1RLS_rn.png'); background-size: cover; background-position: center;">
+      <div class="hero-bg-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text-side">
+            <div class="hero-badge">Licenciatura de Vanguardia</div>
+            <h1 class="hero-title">
+              Licenciatura en Arte Digital y Animación
+              <span>Soluciones creativas con impacto real</span>
+            </h1>
+            <p class="hero-description">
+              Formamos profesionales líderes capaces de responder de manera creativa y sostenible a problemáticas de comunicación visual. Integración armónica de técnicas tradicionales, esculpido 3D, animación avanzada y estrategia.
+            </p>
+            <div class="hero-cta-group">
+              <a href="https://sites.google.com/unica.edu.ni/portafolioada2026/arte-digital" target="_blank" class="btn-primary">Ver Portafolio Oficial</a>
+            </div>
+          </div>
+
+          <div class="hero-visual-grid">
+            <div class="hero-art-card">
+              <img src="resources/8BEJOWLO1a1aki_YNB6kSN.png" alt="Gothic Dark Fantasy Illustration" class="hero-art-img">
+              <div class="hero-art-caption">Gothic-Fantasy Narrative</div>
+            </div>
+            <div class="hero-art-card">
+              <img src="resources/bYo_I_pZiEdcVWE7hDl4jw.png" alt="Dynamic Stylized Character Design" class="hero-art-img">
+              <div class="hero-art-caption">Stylized Animation Art</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Overview Section -->
+    <section id="programa" class="program-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Oferta Académica</span>
+          <h2>Licenciatura en Arte Digital y Animación</h2>
+          <div class="gold-divider"></div>
+          <p class="section-lead">Una formación holística diseñada para dominar el lenguaje visual moderno y responder a las demandas de las industrias creativas globales.</p>
+        </div>
+
+        <div class="program-card">
+          <div class="program-info">
+            <span class="program-tag">Programa Profesional</span>
+            <h3>Visión Integral y Sostenible</h3>
+            <p class="program-description">
+              Programa académico que forma profesionales en comunicación visual mediante técnicas de arte digital, animación 2D y 3D, modelado tridimensional y estrategias de marketing digital.
+            </p>
+            <ul class="program-highlights">
+              <li class="program-highlight-item">Técnicas Artísticas Tradicionales y Digitales</li>
+              <li class="program-highlight-item">Modelado Tridimensional (3D)</li>
+              <li class="program-highlight-item">Producción Audiovisual y Animación 2D y 3D</li>
+              <li class="program-highlight-item">Estrategias de Marketing Digital</li>
+            </ul>
+          </div>
+          <div class="program-visual">
+            <img src="resources/azAX0nMiX7ReYjZVilcOZy.png" alt="Digital Sculpting Hands" data-alt="Close-up macro photography of hands sculpting a stylized fantasy creature head out of matte dark gray digital clay on an illuminated tablet surface, warm golden side lighting casting long soft shadows. Artistic process focus, no text, signage, or lettering." class="program-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disciplines / Pillars Section -->
+    <section id="disciplinas" class="disciplines-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Ejes de Formación</span>
+          <h2>Disciplinas & Competencias Key</h2>
+          <div class="gold-divider"></div>
+          <p class="section-lead">Explora las áreas fundamentales que constituyen el plan de estudios de la Licenciatura en Arte Digital y Animación.</p>
+        </div>
+
+        <div class="disciplines-grid">
+          <div class="discipline-card">
+            <div class="discipline-img-wrapper">
+              <img src="resources/a1pP6_tBm_15DknekOJkUS.png" alt="Traditional Graphite Pencil Study" class="discipline-img">
+            </div>
+            <span class="discipline-num">Módulo I</span>
+            <h3 class="discipline-title">Arte Tradicional & Ilustración</h3>
+            <p class="discipline-desc">Dominio del dibujo analógico, estudio de sombra, proporciones, entintado expresivo y fundamentos clásicos de representación visual.</p>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-img-wrapper">
+              <img src="resources/aTlp-PsREhP225ui9FA_Vx.png" alt="Gothic Architectural Concept Art" data-alt="A painterly concept art piece showing dramatic Gothic architectural vaulted arches glowing with warm amber ambient light in a dark mist-filled cavern. Rich brushwork texture, deep midnight navy and gold palette, mystical feeling, no text, signage, or lettering." class="discipline-img">
+            </div>
+            <span class="discipline-num">Módulo II</span>
+            <h3 class="discipline-title">Modelado 3D & Concept Art</h3>
+            <p class="discipline-desc">Escultura digital tridimensional, diseño de personajes estilizados, utilería y entornos de narrativa conceptual profunda.</p>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-img-wrapper">
+              <img src="resources/83ilOSnc--idkHTKK8gkpV.png" alt="Dynamic 2D Animation and Stage Performance" class="discipline-img">
+            </div>
+            <span class="discipline-num">Módulo III</span>
+            <h3 class="discipline-title">Animación 2D / 3D & Audiovisual</h3>
+            <p class="discipline-desc">Principios del movimiento, producción audiovisual, timing, narrativa secuencial y creación de experiencias de animación vivas.</p>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-img-wrapper">
+              <img src="resources/93issOnqbv42Zx2VmUc_F7.png" alt="Digital Marketing and Editorial Publication Artwork" class="discipline-img">
+            </div>
+            <span class="discipline-num">Módulo IV</span>
+            <h3 class="discipline-title">Marketing & Comunicación</h3>
+            <p class="discipline-desc">Estrategias de comunicación de impacto, dirección de arte para campañas, branding y comercialización sostenible de proyectos visuales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Aesthetics & Student Portfolio Showcase -->
+    <section id="galeria" class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Estilos & Narrativas</span>
+          <h2>Galería de Expresión Visual</h2>
+          <div class="gold-divider"></div>
+          <p class="section-lead">Una muestra gráfica de la diversidad estética desarrollada dentro del programa académico.</p>
+        </div>
+
+        <div class="aesthetics-nav">
+          <span class="aesthetic-tag">Gothic-Fantasy Narrative</span>
+          <span class="aesthetic-tag">Stylized Character-Sculpting</span>
+          <span class="aesthetic-tag">Expressive Ink-Linework</span>
+          <span class="aesthetic-tag">Painterly Concept-Art</span>
+          <span class="aesthetic-tag">Whimsical Creature-Design</span>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Item 1: Gothic Fantasy -->
+          <div class="gallery-item gallery-item-large">
+            <img src="resources/at7LBrTELw07_gQoXBLO8T.png" alt="Vaulted Church Interior Artwork" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Gothic-Fantasy Narrative</span>
+              <h4 class="gallery-title">Arquitectura Sacra & Ambientación Dramática</h4>
+            </div>
+          </div>
+
+          <!-- Item 2: Expressive Ink -->
+          <div class="gallery-item">
+            <img src="resources/89XQXnu_i2w72a-KHWDO8J.png" alt="Stippled Ink Artwork" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Expressive Ink-Linework</span>
+              <h4 class="gallery-title">Puntillismo & Texturas de Tinta</h4>
+            </div>
+          </div>
+
+          <!-- Item 3: Painterly Concept Art -->
+          <div class="gallery-item">
+            <img src="resources/905plh14gGp6tWNkiHEkFO.png" alt="Autumn Forest Path Painting" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Painterly Concept-Art</span>
+              <h4 class="gallery-title">Estudios de Color & Entorno Paisajístico</h4>
+            </div>
+          </div>
+
+          <!-- Item 4: Character Design -->
+          <div class="gallery-item">
+            <img src="resources/bdfcVe99VFO0i1F9GjLOYA.png" alt="Stylized Dark Portrait" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Stylized Character-Sculpting</span>
+              <h4 class="gallery-title">Retrato Estilizado & Iluminación Atmosférica</h4>
+            </div>
+          </div>
+
+          <!-- Item 5: Whimsical Creature -->
+          <div class="gallery-item">
+            <img src="resources/aoVyHhLQ6307amUfIwyOKb.png" alt="Whimsical Unicorn Watercolor" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Whimsical Creature-Design</span>
+              <h4 class="gallery-title">Criaturas Fantásticas & Acuarela Digital</h4>
+            </div>
+          </div>
+
+          <!-- Item 6: Graphic Performance -->
+          <div class="gallery-item gallery-item-large">
+            <img src="resources/aRty4tvIeJRdpgT9TFhOpf.png" alt="Jazz Trio Graphic Illustration" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Expressive Ink-Linework</span>
+              <h4 class="gallery-title">Composición Geométrica & Ritmo Visual</h4>
+            </div>
+          </div>
+
+          <!-- Item 7: Scenic Sunset -->
+          <div class="gallery-item">
+            <img src="resources/aTQKbnYQzDWaYS8vu30_d5.png" alt="Vibrant Sunset Painting" class="gallery-img">
+            <div class="gallery-caption">
+              <span class="gallery-category">Painterly Concept-Art</span>
+              <h4 class="gallery-title">Expresionismo de Luz y Atardeceres</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="valores" class="values-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Filosofía UNICA</span>
+          <h2>Valores Fundamentales</h2>
+          <div class="gold-divider"></div>
+          <p class="section-lead">Nuestra propuesta educativa integra la excelencia técnica con un compromiso ético y cultural reflexivo.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">✧</div>
+            <h3 class="value-title">Innovación Visual</h3>
+            <p class="value-desc">Búsqueda constante de nuevas fronteras conceptuales y tecnológicas en la creación y la animación digital.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🏛</div>
+            <h3 class="value-title">Valor Cultural</h3>
+            <p class="value-desc">Rescate, preservación y enriquecimiento de las identidades narrativas a través del arte contemporáneo.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="value-title">Responsabilidad Social</h3>
+            <p class="value-desc">Creación de soluciones comunicativas orientadas a generar un impacto social positivo en la comunidad.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">🌿</div>
+            <h3 class="value-title">Sostenibilidad</h3>
+            <p class="value-desc">Desarrollo de proyectos viables, duraderos y respetuosos con los entornos humanos y ambientales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Institution & Authority Endorsement Section -->
+    <section id="universidad" class="institution-section">
+      <div class="container">
+        <div class="institution-card">
+          <div class="institution-logo-wrap">
+            <img src="resources/bJCIHIcFhXgdI1gxBXo4U7.png" alt="UNICA Universidad Emblem" class="institution-logo">
+          </div>
+          <div class="institution-info">
+            <h3>Respaldo Institucional</h3>
+            <h2>Universidad Cardenal Miguel Obando Bravo</h2>
+            <p>
+              La Licenciatura en Arte Digital y Animación de UNICA forma profesionales con alta capacidad técnica y humana. Nuestro modelo educativo integra la tradición académica con las exigencias tecnológicas de la comunicación visual global.
+            </p>
+            <a href="https://sites.google.com/unica.edu.ni/portafolioada2026/arte-digital" target="_blank" class="btn-primary">Visitar Portafolio Oficial de Arte Digital</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Licenciatura en Arte Digital y Animación</h4>
+          <p>Universidad Cardenal Miguel Obando Bravo (UNICA). Formando profesionales capaces de responder de manera creativa y sostenible a problemáticas de comunicación visual.</p>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Valores</h5>
+          <ul class="footer-list">
+            <li>Innovación visual</li>
+            <li>Valor cultural</li>
+            <li>Responsabilidad social</li>
+            <li>Sostenibilidad</li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Enlaces Oficiales</h5>
+          <ul class="footer-list">
+            <li><a href="https://sites.google.com/unica.edu.ni/portafolioada2026/arte-digital" target="_blank">Portafolio ADA UNICA</a></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#programa">El Programa</a></li>
+            <li><a href="#galeria">Galería</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; Licenciatura en Arte Digital y Animación - UNICA. Todos los derechos reservados.</div>
+        <div>Soluciones creativas con impacto real</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
