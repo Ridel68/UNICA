@@ -747,8 +747,105 @@
       gap: 1rem;
     }
 
+    /* Arte vs Diseño comparison */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+
+    .compare-col h4 {
+      color: var(--color-gold);
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .compare-col .compare-lead {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      margin-bottom: 0.9rem;
+    }
+
+    .compare-col .program-highlights {
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+    }
+
+    /* Discipline skill lists */
+    .discipline-list {
+      list-style: none;
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .discipline-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+    }
+
+    .discipline-list li::before {
+      content: '◆';
+      color: var(--color-gold);
+      font-size: 0.7rem;
+      margin-top: 4px;
+    }
+
+    /* Myths & realities */
+    .myths-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .myth-card {
+      background: var(--color-surface);
+      border: 1px solid rgba(227, 174, 80, 0.25);
+      padding: 2rem 1.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .myth-card:hover {
+      border-color: var(--color-gold);
+      box-shadow: 0 10px 30px var(--color-gold-glow);
+      background: var(--color-surface-hover);
+    }
+
+    .myth-card .value-icon {
+      margin: 0 0 1rem 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .myth-quote {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: 0.9rem;
+    }
+
+    .myth-reality {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    .myth-reality strong {
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+    }
+
     /* Responsive Styles */
     @media (max-width: 992px) {
+      .myths-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
       .hero-content {
         grid-template-columns: 1fr;
       }
@@ -770,6 +867,10 @@
     }
 
     @media (max-width: 768px) {
+      .compare-grid,
+      .myths-grid {
+        grid-template-columns: 1fr;
+      }
       .nav-links {
         display: none; /* Mobile fallback clean layout */
       }
@@ -810,10 +911,10 @@
 
         <ul class="nav-links">
           <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#programa">El Programa</a></li>
-          <li><a href="#disciplinas">Disciplinas</a></li>
-          <li><a href="#galeria">Galería & Estilos</a></li>
-          <li><a href="#valores">Valores</a></li>
+          <li><a href="#programa">¿Qué es?</a></li>
+          <li><a href="#disciplinas">Qué aprenderás</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#mitos">Mitos y realidades</a></li>
           <li><a href="#universidad">UNICA</a></li>
         </ul>
 
@@ -830,13 +931,13 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-text-side">
-            <div class="hero-badge">Licenciatura de Vanguardia</div>
+            <div class="hero-badge">Facultad de Arte, Diseño y Comunicación</div>
             <h1 class="hero-title">
               Licenciatura en Arte Digital y Animación
-              <span>Soluciones creativas con impacto real</span>
+              <span>¡Amamos lo que hacemos!</span>
             </h1>
             <p class="hero-description">
-              Formamos profesionales líderes capaces de responder de manera creativa y sostenible a problemáticas de comunicación visual. Integración armónica de técnicas tradicionales, esculpido 3D, animación avanzada y estrategia.
+              Aprende a diseñar productos gráficos, animaciones 2D y 3D, contenidos digitales interactivos y estrategias de comunicación visual y marketing, combinando creatividad con habilidades técnicas.
             </p>
             <div class="hero-cta-group">
               <a href="https://sites.google.com/unica.edu.ni/portafolioada2026/arte-digital" target="_blank" class="btn-primary">Ver Portafolio Oficial</a>
@@ -846,11 +947,11 @@
           <div class="hero-visual-grid">
             <div class="hero-art-card">
               <img src="resources/8BEJOWLO1a1aki_YNB6kSN.png" alt="Gothic Dark Fantasy Illustration" class="hero-art-img">
-              <div class="hero-art-caption">Gothic-Fantasy Narrative</div>
+              <div class="hero-art-caption">Ilustración narrativa</div>
             </div>
             <div class="hero-art-card">
               <img src="resources/bYo_I_pZiEdcVWE7hDl4jw.png" alt="Dynamic Stylized Character Design" class="hero-art-img">
-              <div class="hero-art-caption">Stylized Animation Art</div>
+              <div class="hero-art-caption">Diseño de personajes</div>
             </div>
           </div>
         </div>
@@ -861,28 +962,40 @@
     <section id="programa" class="program-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Oferta Académica</span>
-          <h2>Licenciatura en Arte Digital y Animación</h2>
+          <span class="section-kicker">Facultad de Arte, Diseño y Comunicación</span>
+          <h2>¿Qué es Arte Digital y Animación?</h2>
           <div class="gold-divider"></div>
-          <p class="section-lead">Una formación holística diseñada para dominar el lenguaje visual moderno y responder a las demandas de las industrias creativas globales.</p>
+          <p class="section-lead">Arte y diseño implican la creación de formas visuales y estéticas, pero se diferencian en su función y propósito.</p>
         </div>
 
         <div class="program-card">
           <div class="program-info">
-            <span class="program-tag">Programa Profesional</span>
-            <h3>Visión Integral y Sostenible</h3>
-            <p class="program-description">
-              Programa académico que forma profesionales en comunicación visual mediante técnicas de arte digital, animación 2D y 3D, modelado tridimensional y estrategias de marketing digital.
-            </p>
-            <ul class="program-highlights">
-              <li class="program-highlight-item">Técnicas Artísticas Tradicionales y Digitales</li>
-              <li class="program-highlight-item">Modelado Tridimensional (3D)</li>
-              <li class="program-highlight-item">Producción Audiovisual y Animación 2D y 3D</li>
-              <li class="program-highlight-item">Estrategias de Marketing Digital</li>
-            </ul>
+            <span class="program-tag">¿Qué es Arte y qué es Diseño?</span>
+            <div class="compare-grid">
+              <div class="compare-col">
+                <h4>Arte</h4>
+                <p class="compare-lead">Se crea principalmente para expresar emociones y sentimientos.</p>
+                <ul class="program-highlights">
+                  <li class="program-highlight-item">Es más libre y autónomo</li>
+                  <li class="program-highlight-item">Puede ser subjetivo y estar abierto a interpretaciones individuales</li>
+                  <li class="program-highlight-item">A menudo es una expresión personal del artista</li>
+                  <li class="program-highlight-item">Puede ser más conceptual y abstracto</li>
+                </ul>
+              </div>
+              <div class="compare-col">
+                <h4>Diseño</h4>
+                <p class="compare-lead">Se crea para resolver problemas y satisfacer necesidades específicas.</p>
+                <ul class="program-highlights">
+                  <li class="program-highlight-item">Está sujeto a restricciones y requerimientos, como la función, el presupuesto y las limitaciones técnicas</li>
+                  <li class="program-highlight-item">Debe ser claro y comprensible para su público objetivo</li>
+                  <li class="program-highlight-item">Es una colaboración entre el diseñador y el cliente o usuario</li>
+                  <li class="program-highlight-item">Debe ser más funcional y práctico</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="program-visual">
-            <img src="resources/azAX0nMiX7ReYjZVilcOZy.png" alt="Digital Sculpting Hands" data-alt="Close-up macro photography of hands sculpting a stylized fantasy creature head out of matte dark gray digital clay on an illuminated tablet surface, warm golden side lighting casting long soft shadows. Artistic process focus, no text, signage, or lettering." class="program-img">
+            <img src="resources/azAX0nMiX7ReYjZVilcOZy.png" alt="Manos esculpiendo digitalmente una criatura fantástica" class="program-img">
           </div>
         </div>
       </div>
@@ -892,47 +1005,72 @@
     <section id="disciplinas" class="disciplines-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Ejes de Formación</span>
-          <h2>Disciplinas & Competencias Key</h2>
+          <span class="section-kicker">¿Qué necesitas aprender?</span>
+          <h2>¿Qué aprenderás en la carrera de Arte Digital y Animación?</h2>
           <div class="gold-divider"></div>
-          <p class="section-lead">Explora las áreas fundamentales que constituyen el plan de estudios de la Licenciatura en Arte Digital y Animación.</p>
+          <p class="section-lead">Tres áreas de formación que combinan creatividad, técnica y estrategia.</p>
         </div>
 
         <div class="disciplines-grid">
           <div class="discipline-card">
             <div class="discipline-img-wrapper">
-              <img src="resources/a1pP6_tBm_15DknekOJkUS.png" alt="Traditional Graphite Pencil Study" class="discipline-img">
+              <img src="resources/a1pP6_tBm_15DknekOJkUS.png" alt="Estudio de dibujo con lápiz de grafito" class="discipline-img">
             </div>
-            <span class="discipline-num">Módulo I</span>
-            <h3 class="discipline-title">Arte Tradicional & Ilustración</h3>
-            <p class="discipline-desc">Dominio del dibujo analógico, estudio de sombra, proporciones, entintado expresivo y fundamentos clásicos de representación visual.</p>
+            <span class="discipline-num">Área I</span>
+            <h3 class="discipline-title">Arte Digital</h3>
+            <p class="discipline-desc">Diseñar productos gráficos que comuniquen ideas visuales de manera creativa, estética y funcional.</p>
+            <ul class="discipline-list">
+              <li>Técnicas de investigación</li>
+              <li>Conceptualización</li>
+              <li>Dibujo artístico</li>
+              <li>Dibujo técnico</li>
+              <li>Comunicación de ideas</li>
+              <li>Ilustración</li>
+              <li>Fotografía</li>
+              <li>Edición de imagen</li>
+              <li>Composición visual</li>
+              <li>Técnicas de expresión</li>
+              <li>Diseño editorial</li>
+              <li>Mensaje publicitario</li>
+            </ul>
           </div>
 
           <div class="discipline-card">
             <div class="discipline-img-wrapper">
-              <img src="resources/aTlp-PsREhP225ui9FA_Vx.png" alt="Gothic Architectural Concept Art" data-alt="A painterly concept art piece showing dramatic Gothic architectural vaulted arches glowing with warm amber ambient light in a dark mist-filled cavern. Rich brushwork texture, deep midnight navy and gold palette, mystical feeling, no text, signage, or lettering." class="discipline-img">
+              <img src="resources/83ilOSnc--idkHTKK8gkpV.png" alt="Animación 2D dinámica" class="discipline-img">
             </div>
-            <span class="discipline-num">Módulo II</span>
-            <h3 class="discipline-title">Modelado 3D & Concept Art</h3>
-            <p class="discipline-desc">Escultura digital tridimensional, diseño de personajes estilizados, utilería y entornos de narrativa conceptual profunda.</p>
+            <span class="discipline-num">Área II</span>
+            <h3 class="discipline-title">Animación Digital y Modelado 3D</h3>
+            <p class="discipline-desc">Diseñar animaciones 2D y 3D y contenidos digitales interactivos para diversos medios.</p>
+            <ul class="discipline-list">
+              <li>Proyecciones geométricas</li>
+              <li>Observación</li>
+              <li>Técnicas de modelado 3D</li>
+              <li>Principios y técnicas de animación</li>
+              <li>Técnicas de animación</li>
+              <li>Diseño y programación web</li>
+              <li>Lenguajes de programación</li>
+              <li>Tecnologías de IA</li>
+            </ul>
           </div>
 
           <div class="discipline-card">
             <div class="discipline-img-wrapper">
-              <img src="resources/83ilOSnc--idkHTKK8gkpV.png" alt="Dynamic 2D Animation and Stage Performance" class="discipline-img">
+              <img src="resources/93issOnqbv42Zx2VmUc_F7.png" alt="Arte para marketing digital y publicaciones editoriales" class="discipline-img">
             </div>
-            <span class="discipline-num">Módulo III</span>
-            <h3 class="discipline-title">Animación 2D / 3D & Audiovisual</h3>
-            <p class="discipline-desc">Principios del movimiento, producción audiovisual, timing, narrativa secuencial y creación de experiencias de animación vivas.</p>
-          </div>
-
-          <div class="discipline-card">
-            <div class="discipline-img-wrapper">
-              <img src="resources/93issOnqbv42Zx2VmUc_F7.png" alt="Digital Marketing and Editorial Publication Artwork" class="discipline-img">
-            </div>
-            <span class="discipline-num">Módulo IV</span>
-            <h3 class="discipline-title">Marketing & Comunicación</h3>
-            <p class="discipline-desc">Estrategias de comunicación de impacto, dirección de arte para campañas, branding y comercialización sostenible de proyectos visuales.</p>
+            <span class="discipline-num">Área III</span>
+            <h3 class="discipline-title">Marketing</h3>
+            <p class="discipline-desc">Diseñar estrategias de comunicación visual y marketing para el posicionamiento de marcas, productos o servicios.</p>
+            <ul class="discipline-list">
+              <li>Tendencias de marketing</li>
+              <li>Fundamentos de mercadeo</li>
+              <li>Diseño de marca personal</li>
+              <li>Presupuesto</li>
+              <li>Nichos de mercado</li>
+              <li>Análisis de competidores</li>
+              <li>Investigación aplicada</li>
+              <li>Sistemas de representación visual</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -942,18 +1080,18 @@
     <section id="galeria" class="gallery-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Estilos & Narrativas</span>
-          <h2>Galería de Expresión Visual</h2>
+          <span class="section-kicker">Trabajo de estudiantes</span>
+          <h2>Galería de expresión visual</h2>
           <div class="gold-divider"></div>
-          <p class="section-lead">Una muestra gráfica de la diversidad estética desarrollada dentro del programa académico.</p>
+          <p class="section-lead">Una muestra de la diversidad de estilos que se desarrolla en la carrera.</p>
         </div>
 
         <div class="aesthetics-nav">
-          <span class="aesthetic-tag">Gothic-Fantasy Narrative</span>
-          <span class="aesthetic-tag">Stylized Character-Sculpting</span>
-          <span class="aesthetic-tag">Expressive Ink-Linework</span>
-          <span class="aesthetic-tag">Painterly Concept-Art</span>
-          <span class="aesthetic-tag">Whimsical Creature-Design</span>
+          <span class="aesthetic-tag">Fantasía gótica</span>
+          <span class="aesthetic-tag">Escultura de personajes</span>
+          <span class="aesthetic-tag">Tinta expresiva</span>
+          <span class="aesthetic-tag">Arte conceptual</span>
+          <span class="aesthetic-tag">Diseño de criaturas</span>
         </div>
 
         <div class="gallery-grid">
@@ -961,7 +1099,7 @@
           <div class="gallery-item gallery-item-large">
             <img src="resources/at7LBrTELw07_gQoXBLO8T.png" alt="Vaulted Church Interior Artwork" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Gothic-Fantasy Narrative</span>
+              <span class="gallery-category">Fantasía gótica</span>
               <h4 class="gallery-title">Arquitectura Sacra & Ambientación Dramática</h4>
             </div>
           </div>
@@ -970,7 +1108,7 @@
           <div class="gallery-item">
             <img src="resources/89XQXnu_i2w72a-KHWDO8J.png" alt="Stippled Ink Artwork" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Expressive Ink-Linework</span>
+              <span class="gallery-category">Tinta expresiva</span>
               <h4 class="gallery-title">Puntillismo & Texturas de Tinta</h4>
             </div>
           </div>
@@ -979,7 +1117,7 @@
           <div class="gallery-item">
             <img src="resources/905plh14gGp6tWNkiHEkFO.png" alt="Autumn Forest Path Painting" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Painterly Concept-Art</span>
+              <span class="gallery-category">Arte conceptual</span>
               <h4 class="gallery-title">Estudios de Color & Entorno Paisajístico</h4>
             </div>
           </div>
@@ -988,7 +1126,7 @@
           <div class="gallery-item">
             <img src="resources/bdfcVe99VFO0i1F9GjLOYA.png" alt="Stylized Dark Portrait" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Stylized Character-Sculpting</span>
+              <span class="gallery-category">Escultura de personajes</span>
               <h4 class="gallery-title">Retrato Estilizado & Iluminación Atmosférica</h4>
             </div>
           </div>
@@ -997,7 +1135,7 @@
           <div class="gallery-item">
             <img src="resources/aoVyHhLQ6307amUfIwyOKb.png" alt="Whimsical Unicorn Watercolor" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Whimsical Creature-Design</span>
+              <span class="gallery-category">Diseño de criaturas</span>
               <h4 class="gallery-title">Criaturas Fantásticas & Acuarela Digital</h4>
             </div>
           </div>
@@ -1006,7 +1144,7 @@
           <div class="gallery-item gallery-item-large">
             <img src="resources/aRty4tvIeJRdpgT9TFhOpf.png" alt="Jazz Trio Graphic Illustration" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Expressive Ink-Linework</span>
+              <span class="gallery-category">Tinta expresiva</span>
               <h4 class="gallery-title">Composición Geométrica & Ritmo Visual</h4>
             </div>
           </div>
@@ -1015,7 +1153,7 @@
           <div class="gallery-item">
             <img src="resources/aTQKbnYQzDWaYS8vu30_d5.png" alt="Vibrant Sunset Painting" class="gallery-img">
             <div class="gallery-caption">
-              <span class="gallery-category">Painterly Concept-Art</span>
+              <span class="gallery-category">Arte conceptual</span>
               <h4 class="gallery-title">Expresionismo de Luz y Atardeceres</h4>
             </div>
           </div>
@@ -1023,39 +1161,46 @@
       </div>
     </section>
 
-    <!-- Core Values Section -->
-    <section id="valores" class="values-section">
+    <!-- Myths & Realities Section -->
+    <section id="mitos" class="values-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-kicker">Filosofía UNICA</span>
-          <h2>Valores Fundamentales</h2>
+          <span class="section-kicker">Lo que debes saber</span>
+          <h2>Mitos de la carrera de Arte Digital y Animación</h2>
           <div class="gold-divider"></div>
-          <p class="section-lead">Nuestra propuesta educativa integra la excelencia técnica con un compromiso ético y cultural reflexivo.</p>
+          <p class="section-lead">Seis ideas que se repiten con frecuencia, y lo que realmente encontrarás al estudiar la carrera.</p>
         </div>
 
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">✧</div>
-            <h3 class="value-title">Innovación Visual</h3>
-            <p class="value-desc">Búsqueda constante de nuevas fronteras conceptuales y tecnológicas en la creación y la animación digital.</p>
+        <div class="myths-grid">
+          <div class="myth-card">
+            <div class="value-icon">1</div>
+            <p class="myth-quote">“Solo dibujas todo el día.”</p>
+            <p class="myth-reality"><strong>Realidad:</strong> Aunque el dibujo es una parte importante, también se aprenden habilidades técnicas como modelado 3D, animación, edición de video, efectos visuales, programación básica, diseño de interfaces, entre otros.</p>
           </div>
-
-          <div class="value-card">
-            <div class="value-icon">🏛</div>
-            <h3 class="value-title">Valor Cultural</h3>
-            <p class="value-desc">Rescate, preservación y enriquecimiento de las identidades narrativas a través del arte contemporáneo.</p>
+          <div class="myth-card">
+            <div class="value-icon">2</div>
+            <p class="myth-quote">“No tiene salida laboral o es muy difícil encontrar trabajo.”</p>
+            <p class="myth-reality"><strong>Realidad:</strong> Hay una alta demanda de artistas digitales en industrias como videojuegos, cine, publicidad, redes sociales, realidad virtual, animación educativa, etc. También hay muchas oportunidades como freelancer o emprendedor, y se trabaja en diseño web, arquitectura, educación virtual, medicina (simulaciones), marketing digital y más.</p>
           </div>
-
-          <div class="value-card">
-            <div class="value-icon">🤝</div>
-            <h3 class="value-title">Responsabilidad Social</h3>
-            <p class="value-desc">Creación de soluciones comunicativas orientadas a generar un impacto social positivo en la comunidad.</p>
+          <div class="myth-card">
+            <div class="value-icon">3</div>
+            <p class="myth-quote">“Es una carrera fácil.”</p>
+            <p class="myth-reality"><strong>Realidad:</strong> La carrera es exigente. Combina creatividad con habilidades técnicas avanzadas. Requiere práctica constante, pensamiento crítico y resolución de problemas. No solo es “bonito”, también es complejo.</p>
           </div>
-
-          <div class="value-card">
-            <div class="value-icon">🌿</div>
-            <h3 class="value-title">Sostenibilidad</h3>
-            <p class="value-desc">Desarrollo de proyectos viables, duraderos y respetuosos con los entornos humanos y ambientales.</p>
+          <div class="myth-card">
+            <div class="value-icon">4</div>
+            <p class="myth-quote">“Es solo para los que saben dibujar.”</p>
+            <p class="myth-reality"><strong>Realidad:</strong> No necesitas ser un genio del dibujo para empezar. La carrera te enseña desde lo básico. Lo más importante es tener curiosidad, ganas de aprender y práctica constante.</p>
+          </div>
+          <div class="myth-card">
+            <div class="value-icon">5</div>
+            <p class="myth-quote">“No es una profesión seria.”</p>
+            <p class="myth-reality"><strong>Realidad:</strong> Los profesionales de esta área trabajan en grandes producciones, crean contenido viral o educativo, y son esenciales en empresas tecnológicas.</p>
+          </div>
+          <div class="myth-card">
+            <div class="value-icon">6</div>
+            <p class="myth-quote">“Es una carrera solitaria.”</p>
+            <p class="myth-reality"><strong>Realidad:</strong> Muchos proyectos se hacen en equipo. En la industria del cine y videojuegos, la colaboración es constante entre animadores, guionistas, diseñadores de sonido, programadores, etc.</p>
           </div>
         </div>
       </div>
@@ -1069,10 +1214,10 @@
             <img src="resources/bJCIHIcFhXgdI1gxBXo4U7.png" alt="UNICA Universidad Emblem" class="institution-logo">
           </div>
           <div class="institution-info">
-            <h3>Respaldo Institucional</h3>
+            <h3>Facultad de Arte, Diseño y Comunicación</h3>
             <h2>Universidad Cardenal Miguel Obando Bravo</h2>
             <p>
-              La Licenciatura en Arte Digital y Animación de UNICA forma profesionales con alta capacidad técnica y humana. Nuestro modelo educativo integra la tradición académica con las exigencias tecnológicas de la comunicación visual global.
+              ¡Amamos lo que hacemos! En la Licenciatura en Arte Digital y Animación formamos profesionales que diseñan productos gráficos, animaciones 2D y 3D, contenidos digitales interactivos y estrategias de comunicación visual y marketing.
             </p>
             <a href="https://sites.google.com/unica.edu.ni/portafolioada2026/arte-digital" target="_blank" class="btn-primary">Visitar Portafolio Oficial de Arte Digital</a>
           </div>
@@ -1087,16 +1232,15 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h4>Licenciatura en Arte Digital y Animación</h4>
-          <p>Universidad Cardenal Miguel Obando Bravo (UNICA). Formando profesionales capaces de responder de manera creativa y sostenible a problemáticas de comunicación visual.</p>
+          <p>Facultad de Arte, Diseño y Comunicación. Universidad Cardenal Miguel Obando Bravo (UNICA). ¡Amamos lo que hacemos!</p>
         </div>
 
         <div>
-          <h5 class="footer-title">Valores</h5>
+          <h5 class="footer-title">Áreas de formación</h5>
           <ul class="footer-list">
-            <li>Innovación visual</li>
-            <li>Valor cultural</li>
-            <li>Responsabilidad social</li>
-            <li>Sostenibilidad</li>
+            <li>Arte Digital</li>
+            <li>Animación Digital y Modelado 3D</li>
+            <li>Marketing</li>
           </ul>
         </div>
 
@@ -1105,15 +1249,16 @@
           <ul class="footer-list">
             <li><a href="https://sites.google.com/unica.edu.ni/portafolioada2026/arte-digital" target="_blank">Portafolio ADA UNICA</a></li>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#programa">El Programa</a></li>
+            <li><a href="#programa">¿Qué es Arte Digital y Animación?</a></li>
             <li><a href="#galeria">Galería</a></li>
+            <li><a href="#mitos">Mitos y realidades</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>&copy; Licenciatura en Arte Digital y Animación - UNICA. Todos los derechos reservados.</div>
-        <div>Soluciones creativas con impacto real</div>
+        <div>¡Amamos lo que hacemos!</div>
       </div>
     </div>
   </footer>
