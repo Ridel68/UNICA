@@ -59,7 +59,8 @@ h1,h2,h3,h4{font-family:"League Gothic","Arial Narrow",Impact,sans-serif;font-we
 /* Cabecera */
 .masthead{background:var(--head-bg);color:var(--head-text);padding:18px 0 22px}
 .brand{display:flex;align-items:center;gap:16px}
-.mark{flex:none;width:64px;height:64px;background:var(--red);display:grid;place-items:center;font-family:"League Spartan",sans-serif;font-weight:800;font-size:17px;color:#fff;letter-spacing:.02em}
+.mark{flex:none;width:72px;height:96px;background:#fff;display:grid;place-items:center;padding:6px}
+.mark img{display:block;width:100%;height:100%;object-fit:contain}
 .brand h1{font-size:clamp(44px,11vw,76px)}
 .brand p{margin:2px 0 0;color:var(--gold);font-size:15px;font-weight:500}
 
@@ -169,7 +170,7 @@ footer p{margin:0 0 4px}
 
 <header class="masthead">
   <div class="wrap brand">
-    <div class="mark" aria-hidden="true">UNICA</div>
+    <div class="mark"><img src="logo-unica.png" width="360" height="539" alt="UNICA, Universidad Cardenal Miguel Obando Bravo"></div>
     <div>
       <h1>Boletín informativo</h1>
       <p>UNICA en la noticia · Universidad Cardenal Miguel Obando y Bravo</p>
@@ -187,6 +188,11 @@ footer p{margin:0 0 4px}
 <nav class="nav" aria-label="Secciones del boletín">
   <div class="wrap">
     <ul>
+      <li><a href="#t-recientes">Docencia</a></li>
+      <li><a href="#t-recientes">Investigación</a></li>
+      <li><a href="#t-recientes">Proyección social</a></li>
+      <li><a href="#t-recientes">Gestión institucional</a></li>
+      <li><a href="#t-recientes">Vida estudiantil</a></li>
       <li><a href="#editorial">Editorial</a></li>
       <li><a href="#equipo">Equipo editorial</a></li>
       <li><a href="#anteriores">Noticias anteriores</a></li>
@@ -199,7 +205,7 @@ footer p{margin:0 0 4px}
   <section class="latest wrap" aria-labelledby="t-ultimas">
     <h2 id="t-ultimas">Últimas noticias</h2>
     <ol>
-      <li>Roxanna Blandón es la Miss UNICA 2026<span>Proyección social</span></li>
+      <li>Roxanna Blandón es la Miss UNICA 2026<span>Vida estudiantil</span></li>
       <li>UNICA y HEMCO firman convenio de colaboración<span>Gestión institucional</span></li>
       <li>Cierre de la Cátedra JICA con donación de libros<span>Destacadas</span></li>
       <li>El Embajador de Corea del Sur habla a Ingeniería Industrial<span>Destacadas</span></li>
@@ -213,7 +219,7 @@ footer p{margin:0 0 4px}
       <article class="card big">
         <div class="ph a" role="img" aria-label="Imagen pendiente"></div>
         <div class="body">
-          <span class="cat">Principales</span>
+          <span class="cat">Principales · Vida estudiantil</span>
           <h3>Roxanna Blandón es la nueva Miss UNICA 2026</h3>
           <div class="meta">5 de noviembre de 2026 · Redacción UNICA</div>
           <p>UNICA – La comunidad universitaria celebró la elección de Roxanna Blandón como Miss UNICA 2026. [Pendiente: detalles del evento, lugar y fecha.]</p>
@@ -324,7 +330,7 @@ footer p{margin:0 0 4px}
       <article class="card">
         <div class="ph b" role="img" aria-label="Imagen pendiente"></div>
         <div class="body">
-          <span class="cat navy">Proyección social</span>
+          <span class="cat navy">Vida estudiantil</span>
           <h3>Club Únicamente Verde realiza su segunda jornada de reforestación</h3>
           <div class="meta">31 de octubre de 2026 · Redacción UNICA</div>
           <p>UNICA – Los brigadistas sembraron plantas nativas donadas por el MARENA para proteger la biodiversidad…</p>
@@ -356,15 +362,16 @@ footer p{margin:0 0 4px}
 
   <section class="text wrap" id="editorial">
     <h2>Editorial</h2>
-    <p>Este boletín reúne cada mes lo que ocurre en UNICA: actividades académicas de las carreras, convenios, visitas, iniciativas ambientales y el trabajo que sale de las aulas hacia la comunidad.</p>
+    <p>Este boletín reúne cada mes lo que ocurre en todas las facultades y áreas de UNICA, con una sola identidad y un solo calendario: actividades académicas de las carreras, convenios, visitas, iniciativas ambientales y el trabajo que sale de las aulas hacia la comunidad.</p>
   </section>
 
   <section class="text wrap" id="equipo">
     <h2>Equipo editorial</h2>
     <ul class="team">
-      <li><strong>Dirección editorial</strong>Nombre y cargo</li>
-      <li><strong>Redacción</strong>Nombre y cargo</li>
-      <li><strong>Diseño y fotografía</strong>Nombre y cargo</li>
+      <li><strong>Webmaster y coordinador técnico</strong>Por asignar</li>
+      <li><strong>Editor jefe</strong>Por asignar</li>
+      <li><strong>Corresponsales por facultad y área</strong>Por asignar</li>
+      <li><strong>Material visual</strong>Por asignar</li>
     </ul>
   </section>
 
