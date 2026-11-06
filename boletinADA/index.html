@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boletín informativo · Arte Digital y Animación</title>
+<meta name="description" content="Boletín mensual de Arte Digital y Animación (ADA), Facultad de Arte, Diseño y Comunicación, UNICA: noticias, talleres, eventos y proyectos estudiantiles.">
+<meta name="theme-color" content="#0c1b33">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_NI">
+<meta property="og:title" content="Boletín informativo · Arte Digital y Animación">
+<meta property="og:description" content="Noticias, talleres y proyectos de Arte Digital y Animación, UNICA.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fd0118'/%3E%3Ctext x='32' y='42' font-size='26' font-family='Arial' font-weight='800' text-anchor='middle' fill='%23fff'%3EADA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=League+Gothic&family=League+Spartan:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0c1b33; --red:#fd0118; --gold:#e3ae50; --sand:#d3cbc9;
+  --bg:#f4f1f0; --surface:#ffffff; --text:#0c1b33; --muted:#4a566a;
+  --line:#d3cbc9; --head-bg:#0c1b33; --head-text:#f4f1f0; --head-muted:#b9c0cc;
+  --accent-text:#c40014;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08111f; --surface:#0f2038; --text:#eeeae8; --muted:#b4bcc9;
+    --line:#233552; --head-bg:#050c17; --head-text:#f4f1f0; --head-muted:#a9b2c1;
+    --accent-text:#ff5a69;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08111f; --surface:#0f2038; --text:#eeeae8; --muted:#b4bcc9;
+  --line:#233552; --head-bg:#050c17; --head-text:#f4f1f0; --head-muted:#a9b2c1;
+  --accent-text:#ff5a69;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--head-bg);scroll-behavior:smooth;scroll-padding-top:16px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55}
+a{color:inherit}
+img,video{max-width:100%;height:auto}
+.skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:#0c1b33;padding:10px 16px;font-weight:600;z-index:10}
+.skip:focus{left:0}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+h1,h2,h3,h4{font-family:"League Gothic","Arial Narrow",Impact,sans-serif;font-weight:400;margin:0;letter-spacing:.01em;line-height:1.02}
+.num{font-family:"League Spartan",Inter,sans-serif;font-weight:800;font-variant-numeric:tabular-nums}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+
+/* Barra superior */
+.topbar{background:var(--head-bg);color:var(--head-muted);font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.topbar a{text-decoration:none;margin-left:14px}
+.topbar a:first-child{margin-left:0}
+.topbar a:hover{color:var(--gold)}
+
+/* Cabecera */
+.masthead{background:var(--head-bg);color:var(--head-text);padding:18px 0 22px}
+.brand{display:flex;align-items:center;gap:16px}
+.mark{flex:none;width:64px;height:64px;background:var(--red);display:grid;place-items:center;font-family:"League Spartan",sans-serif;font-weight:800;font-size:24px;color:#fff;letter-spacing:.02em}
+.brand h1{font-size:clamp(44px,11vw,76px)}
+.brand p{margin:2px 0 0;color:var(--gold);font-size:15px;font-weight:500}
+
+/* Banner de edición */
+.edition{background:var(--gold);color:#0c1b33}
+.edition .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.edition strong{font-family:"League Gothic",sans-serif;font-weight:400;font-size:28px;letter-spacing:.01em}
+.edition .num{font-size:15px}
+.edition strong .num{font-size:26px}
+
+/* Navegación */
+.nav{background:var(--surface);border-bottom:1px solid var(--line)}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;gap:4px}
+.nav a{display:block;padding:14px 14px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;border-bottom:3px solid transparent}
+.nav a:hover{border-bottom-color:var(--red)}
+
+/* Últimas noticias */
+.latest{padding:22px 0 6px}
+.latest h2,.block-title{font-size:34px}
+.latest ol{list-style:none;margin:12px 0 0;padding:0 0 10px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity}
+.latest li{flex:0 0 240px;scroll-snap-align:start;background:var(--surface);border-left:4px solid var(--red);padding:12px 14px;font-weight:600;font-size:15px;line-height:1.35}
+.latest li span{display:block;margin-top:6px;font-weight:400;font-size:13px;color:var(--muted)}
+
+/* Bloques */
+.block,.text{content-visibility:auto;contain-intrinsic-size:auto 600px}
+.block{padding:28px 0 8px}
+.block-title{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.block-title::after{content:"";flex:1;height:3px;background:var(--line)}
+.grid{display:grid;gap:18px}
+
+/* Imágenes de ejemplo */
+.ph{aspect-ratio:16/9;width:100%;position:relative;overflow:hidden;background:var(--navy)}
+.ph.a{background:linear-gradient(115deg,#0c1b33 0 52%,#fd0118 52% 66%,#e3ae50 66% 100%)}
+.ph.b{background:radial-gradient(circle at 70% 40%,#e3ae50 0 22%,transparent 23%),linear-gradient(160deg,#0c1b33 0 60%,#1d3558 60%)}
+.ph.c{background:linear-gradient(60deg,#d3cbc9 0 35%,#0c1b33 35% 70%,#fd0118 70%)}
+.ph.d{background:radial-gradient(circle at 25% 65%,#fd0118 0 18%,transparent 19%),linear-gradient(20deg,#0c1b33 0 70%,#e3ae50 70%)}
+.ph.e{background:repeating-linear-gradient(90deg,#0c1b33 0 28px,#14294a 28px 56px)}
+.ph.e::after{content:"";position:absolute;left:14%;top:18%;width:36%;aspect-ratio:1;border-radius:50%;background:#e3ae50}
+
+/* Tarjetas */
+.card{background:var(--surface);display:flex;flex-direction:column}
+.card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat{display:inline-block;align-self:flex-start;font-size:13px;font-weight:600;padding:2px 10px;border-left:4px solid var(--red);background:var(--bg);color:var(--text)}
+.cat.gold{border-left-color:var(--gold)}
+.cat.navy{border-left-color:var(--navy)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cat.navy{border-left-color:var(--sand)}}
+.card h3{font-size:30px}
+.card.big h3{font-size:clamp(34px,6vw,46px)}
+.meta{font-size:13px;color:var(--muted)}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+/* Paginación */
+.pager{display:flex;gap:8px;align-items:center;padding:24px 0 8px;flex-wrap:wrap}
+.pager span,.pager a{min-width:42px;height:42px;display:grid;place-items:center;padding:0 12px;background:var(--surface);text-decoration:none;font-size:15px}
+.pager .current{background:var(--navy);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pager .current{background:var(--red)}}
+.pager a:hover{outline:2px solid var(--gold)}
+
+/* Multimedia */
+.video{position:relative;background:var(--navy);aspect-ratio:16/9;display:grid;place-items:center;color:#fff}
+.video::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#0c1b33 0 60%,#1d3558)}
+.play{position:relative;width:64px;height:64px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.play::after{content:"";margin-left:5px;border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.video-cap{padding:12px 14px;background:var(--surface);font-weight:600;font-size:15px}
+
+/* Secciones de texto */
+.text{padding:30px 0 6px}
+.text h2{font-size:38px;margin-bottom:10px}
+.text p{margin:0 0 12px;max-width:68ch}
+.team{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.team li{background:var(--surface);padding:12px 14px;border-left:4px solid var(--gold)}
+.team strong{display:block}
+.archive{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));list-style:none;padding:0;margin:0}
+.archive li{background:var(--surface);padding:10px 12px;font-size:15px}
+.archive .num{margin-left:6px;font-size:14px;color:var(--accent-text)}
+.btn{display:inline-block;margin-top:6px;background:var(--red);color:#fff;font-weight:600;text-decoration:none;padding:13px 22px}
+.btn:hover{background:#d90015}
+
+/* Pie */
+footer{background:var(--head-bg);color:var(--head-muted);margin-top:40px;padding:28px 0 32px;font-size:14px}
+footer h2{color:var(--head-text);font-size:30px;margin-bottom:8px}
+footer p{margin:0 0 4px}
+
+@media (min-width:760px){
+  .wrap{padding:0 28px}
+  .grid.two{grid-template-columns:1fr 1fr}
+  .grid.three{grid-template-columns:repeat(3,1fr)}
+  .latest li{flex-basis:260px}
+}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion: no-preference){
+  .btn,.nav a{transition:background-color .15s,border-color .15s}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>jueves, 5 de noviembre de 2026</span>
+    <span><a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a></span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap brand">
+    <div class="mark" aria-hidden="true">ADA</div>
+    <div>
+      <h1>Boletín informativo</h1>
+      <p>ADA en la noticia · Arte Digital y Animación, UNICA</p>
+    </div>
+  </div>
+</header>
+
+<div class="edition">
+  <div class="wrap">
+    <strong>Edición de noviembre <span class="num">2026</span></strong>
+    <span class="num">Facultad de Arte, Diseño y Comunicación</span>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Secciones del boletín">
+  <div class="wrap">
+    <ul>
+      <li><a href="#editorial">Editorial</a></li>
+      <li><a href="#equipo">Equipo editorial</a></li>
+      <li><a href="#anteriores">Noticias anteriores</a></li>
+      <li><a href="#suscripcion">Suscripción</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="contenido">
+  <section class="latest wrap" aria-labelledby="t-ultimas">
+    <h2 id="t-ultimas">Últimas noticias</h2>
+    <ol>
+      <li>Anímate: nace la revista digital de la Facultad<span>Proyección social</span></li>
+      <li>Open House: el video de la carrera se proyecta en bucle<span>Gestión institucional</span></li>
+      <li>Taller de CapCut: edición de video desde el celular<span>Docencia</span></li>
+      <li>Póster de cine distópico: tres asignaturas, un proyecto<span>Docencia</span></li>
+      <li>Nuevo portafolio web de proyectos de la carrera<span>Gestión institucional</span></li>
+    </ol>
+  </section>
+
+  <section class="block wrap" aria-labelledby="t-principales">
+    <h2 class="block-title" id="t-principales">Noticias principales</h2>
+    <div class="grid two">
+      <article class="card big">
+        <div class="ph a" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat">Principales</span>
+          <h3>Arte Digital y Animación muestra su trabajo en el Open House</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – Un video promocional en bucle presentó a los visitantes los proyectos de animación, modelado 3D y diseño de la carrera…</p>
+        </div>
+      </article>
+      <article class="card big">
+        <div class="ph b" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat">Principales</span>
+          <h3>Anímate, la revista digital de la Facultad, abre su primera edición</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – La propuesta editorial reúne el trabajo de estudiantes y docentes de Arte, Diseño y Comunicación en un formato digital…</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block wrap" aria-labelledby="t-destacadas">
+    <h2 class="block-title" id="t-destacadas">Noticias destacadas</h2>
+    <div class="grid two">
+      <article class="card">
+        <div class="ph c" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat gold">Destacadas</span>
+          <h3>Congreso estudiantil reúne a Marketing y Arte Digital y Animación</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – Una jornada completa de charlas con profesionales de la industria creativa para los estudiantes de ambas carreras…</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph d" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat gold">Destacadas</span>
+          <h3>Seminario de branding: cuatro módulos sobre marca</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – El programa recorre los fundamentos de la marca y los quince parámetros para construirla con criterio…</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block wrap" aria-labelledby="t-recientes">
+    <h2 class="block-title" id="t-recientes">Más noticias</h2>
+    <div class="grid three">
+      <article class="card">
+        <div class="ph e" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat">Docencia</span>
+          <h3>Póster de cine distópico: tres asignaturas, un proyecto</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – Historia del Arte, Dibujo Anatómico y Taller de Diseño Digital trabajan juntas durante cuatro semanas…</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph a" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat">Docencia</span>
+          <h3>Taller de CapCut: edición de video desde el celular</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – Diez participantes practicaron cortes, ritmo y exportación en una sesión de dos horas…</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph b" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat">Docencia</span>
+          <h3>Modelado en Cinema 4D: una escena de leche sirviéndose</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – Los estudiantes siguieron una guía paso a paso para recrear líquido, vaso y reflejos…</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph c" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat navy">Proyección social</span>
+          <h3>Animación de apertura para el Año del Centenario</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – El logo animado acompañará las actividades del centenario del natalicio del Cardenal Miguel Obando Bravo…</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph d" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat navy">Gestión institucional</span>
+          <h3>Nuevo portafolio web de proyectos de la carrera</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – El sitio estrena banners de cabecera e iconografía propia para cada sección del menú…</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph e" role="img" aria-label="Imagen de ejemplo"></div>
+        <div class="body">
+          <span class="cat">Docencia</span>
+          <h3>Personajes 3D con IA: de la leyenda al videojuego</h3>
+          <div class="meta">noviembre 2026 · Redacción ADA</div>
+          <p>MANAGUA – Un cacique, un caballero oscuro y la Mocuana dan vida a una aventura de plataformas…</p>
+        </div>
+      </article>
+    </div>
+    <nav class="pager" aria-label="Paginación">
+      <span class="current num" aria-current="page">1</span>
+      <a class="num" href="#anteriores">2</a>
+      <span aria-hidden="true">…</span>
+      <a class="num" href="#anteriores">12</a>
+      <a href="#anteriores">Siguiente</a>
+    </nav>
+  </section>
+
+  <section class="block wrap" aria-labelledby="t-multimedia">
+    <h2 class="block-title" id="t-multimedia">Multimedia</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="video" role="img" aria-label="Espacio para video"><div class="play" aria-hidden="true"></div></div>
+        <div class="video-cap">Intro animada de Arte Digital y Animación</div>
+      </div>
+      <div class="card">
+        <div class="video" role="img" aria-label="Espacio para video"><div class="play" aria-hidden="true"></div></div>
+        <div class="video-cap">Video promocional del Open House</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text wrap" id="editorial">
+    <h2>Editorial</h2>
+    <p>Este boletín reúne cada mes lo que hacen los estudiantes y docentes de Arte Digital y Animación: proyectos de clase, talleres, eventos y el trabajo que sale de las aulas hacia la comunidad universitaria.</p>
+  </section>
+
+  <section class="text wrap" id="equipo">
+    <h2>Equipo editorial</h2>
+    <ul class="team">
+      <li><strong>Dirección editorial</strong>Nombre y cargo</li>
+      <li><strong>Redacción</strong>Nombre y cargo</li>
+      <li><strong>Diseño y fotografía</strong>Nombre y cargo</li>
+    </ul>
+  </section>
+
+  <section class="text wrap" id="anteriores">
+    <h2>Noticias anteriores</h2>
+    <ul class="archive">
+      <li>Septiembre<span class="num">2026</span></li>
+      <li>Octubre<span class="num">2026</span></li>
+      <li>Noviembre<span class="num">2026</span></li>
+    </ul>
+  </section>
+
+  <section class="text wrap" id="suscripcion">
+    <h2>Suscripción</h2>
+    <p>Recibe cada edición del boletín en tu correo.</p>
+    <a class="btn" href="mailto:rdelgadillo@unica.edu.ni?subject=Suscripci%C3%B3n%20al%20bolet%C3%ADn%20ADA">Suscribirme</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Arte Digital y Animación</h2>
+    <p>Facultad de Arte, Diseño y Comunicación</p>
+    <p>Universidad Cardenal Miguel Obando y Bravo, Managua</p>
+    <p>rdelgadillo@unica.edu.ni</p>
+  </div>
+</footer>
+
+</body>
+</html>
