@@ -77,6 +77,33 @@ h1,h2,h3,h4{font-family:"League Gothic","Arial Narrow",Impact,sans-serif;font-we
 .nav ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;gap:4px}
 .nav a{display:block;padding:14px 14px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;border-bottom:3px solid transparent}
 .nav a:hover{border-bottom-color:var(--red)}
+.nav .wrap{display:flex;align-items:center;gap:8px}
+.nav ul{flex:1;min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.search{flex:none;margin:6px 0}
+.search input{width:150px;max-width:38vw;border:1px solid var(--line);background:var(--bg);color:var(--text);padding:9px 12px;font:inherit;font-size:15px}
+.search input:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+@media (min-width:760px){.search input{width:220px}}
+
+/* Carrusel de noticias principales */
+.carousel{position:relative}
+.carousel .track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.carousel .track::-webkit-scrollbar{display:none}
+.carousel .slide{flex:0 0 100%;scroll-snap-align:start}
+.cbtn{position:absolute;top:120px;z-index:2;width:44px;height:44px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:30px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 4px}
+.cbtn[hidden]{display:none}
+.cbtn:hover{background:#d90015}
+.cbtn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.cbtn.prev{left:10px}.cbtn.next{right:10px}
+.dots{display:flex;gap:8px;justify-content:center;padding:12px 0 0}
+.dots span{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dots span.on{background:var(--red)}
+@media (min-width:760px){
+  .carousel .slide{flex-direction:row}
+  .carousel .slide .ph{width:50%;aspect-ratio:auto;min-height:320px;flex:none}
+  .carousel .slide .body{justify-content:center;padding:24px}
+  .cbtn{top:50%;margin-top:-22px}
+}
 
 /* Últimas noticias */
 .latest{padding:22px 0 6px}
@@ -153,7 +180,7 @@ footer p{margin:0 0 4px}
   .latest li{flex-basis:260px}
 }
 @media (min-width:1000px){.grid.four{grid-template-columns:repeat(4,1fr)}}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.carousel .track{scroll-behavior:auto}}
 @media (prefers-reduced-motion: no-preference){
   .btn,.nav a{transition:background-color .15s,border-color .15s}
 }
@@ -199,6 +226,10 @@ footer p{margin:0 0 4px}
       <li><a href="#anteriores">Noticias anteriores</a></li>
       <li><a href="#suscripcion">Suscripción</a></li>
     </ul>
+    <form class="search" role="search" id="buscador">
+      <label class="sr" for="q">Buscar noticias</label>
+      <input id="q" type="search" placeholder="Buscar noticias" autocomplete="off">
+    </form>
   </div>
 </nav>
 
@@ -216,8 +247,9 @@ footer p{margin:0 0 4px}
 
   <section class="block wrap" aria-labelledby="t-principales">
     <h2 class="block-title" id="t-principales">Noticias principales</h2>
-    <div class="grid two">
-      <article class="card big">
+    <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Noticias principales">
+    <div class="track">
+      <article class="card big slide">
         <div class="ph a" role="img" aria-label="Imagen pendiente"></div>
         <div class="body">
           <span class="cat">Principales · Vida estudiantil</span>
@@ -226,7 +258,7 @@ footer p{margin:0 0 4px}
           <p>UNICA – La comunidad universitaria celebró la elección de Roxanna Blandón como Miss UNICA 2026. [Pendiente: detalles del evento, lugar y fecha.]</p>
         </div>
       </article>
-      <article class="card big">
+      <article class="card big slide">
         <div class="ph b" role="img" aria-label="Imagen pendiente"></div>
         <div class="body">
           <span class="cat">Principales</span>
@@ -236,6 +268,16 @@ footer p{margin:0 0 4px}
         </div>
       </article>
     </div>
+    <button type="button" class="cbtn prev" aria-label="Nota anterior" hidden>&#8249;</button>
+    <button type="button" class="cbtn next" aria-label="Nota siguiente" hidden>&#8250;</button>
+    <div class="dots" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="resultados" aria-labelledby="t-resultados" hidden>
+    <h2 class="block-title" id="t-resultados">Resultados de la búsqueda</h2>
+    <p class="meta" id="res-info" role="status" aria-live="polite"></p>
+    <div class="grid three" id="res-grid"></div>
   </section>
 
   <section class="block wrap" aria-labelledby="t-destacadas">
@@ -400,5 +442,56 @@ footer p{margin:0 0 4px}
   </div>
 </footer>
 
+<script>
+(function(){
+  'use strict';
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Carrusel */
+  var car=document.querySelector('.carousel');
+  if(car){
+    var track=car.querySelector('.track'), slides=track.children, prev=car.querySelector('.prev'), next=car.querySelector('.next'), dots=car.querySelector('.dots'), timer=null;
+    if(slides.length>1){
+      for(var i=0;i<slides.length;i++){dots.appendChild(document.createElement('span'));}
+      var cur=function(){return Math.round(track.scrollLeft/(track.clientWidth+18));};
+      var mark=function(c){if(typeof c!=='number'){c=cur();}for(var j=0;j<dots.children.length;j++){dots.children[j].className=j===c?'on':'';}};
+      var go=function(n){
+        var w=track.clientWidth+18; n=(n+slides.length)%slides.length;
+        track.scrollTo({left:n*w,behavior:reduced?'auto':'smooth'});
+        mark(n);
+      };
+      var stop=function(){if(timer){clearInterval(timer);timer=null;}};
+      var start=function(){if(reduced||timer)return;timer=setInterval(function(){if(!document.hidden)go(cur()+1);},6000);};
+      prev.hidden=false;next.hidden=false;
+      prev.addEventListener('click',function(){go(cur()-1);stop();});
+      next.addEventListener('click',function(){go(cur()+1);stop();});
+      track.addEventListener('scroll',function(){mark();},{passive:true});
+      car.addEventListener('mouseenter',stop);car.addEventListener('focusin',stop);car.addEventListener('mouseleave',start);
+      mark();start();
+    }
+  }
+
+  /* Buscador: filtra las notas de la página */
+  var form=document.getElementById('buscador'), q=document.getElementById('q'),
+      res=document.getElementById('resultados'), grid=document.getElementById('res-grid'), info=document.getElementById('res-info');
+  var norm=function(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');};
+  var cards=[].slice.call(document.querySelectorAll('main article.card'));
+  var others=[].slice.call(document.querySelectorAll('main > section')).filter(function(s){return s!==res;});
+  function buscar(){
+    var t=norm(q.value.trim());
+    if(!t){res.hidden=true;others.forEach(function(s){s.hidden=false;});return;}
+    var hits=cards.filter(function(c){return norm(c.textContent).indexOf(t)>-1;});
+    grid.innerHTML='';
+    hits.forEach(function(c){var n=c.cloneNode(true);n.className='card';grid.appendChild(n);});
+    info.textContent=hits.length?(hits.length+(hits.length===1?' nota encontrada':' notas encontradas')+' para «'+q.value.trim()+'».'):'No se encontraron notas para «'+q.value.trim()+'».';
+    others.forEach(function(s){s.hidden=true;});
+    res.hidden=false;
+  }
+  if(form&&q){
+    q.addEventListener('input',buscar);
+    form.addEventListener('submit',function(e){e.preventDefault();buscar();});
+  }
+})();
+</script>
 </body>
 </html>
